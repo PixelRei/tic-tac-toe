@@ -1,6 +1,7 @@
 package view;
 
 import javax.swing.*;
+import javax.swing.border.*;
 import java.awt.*;
 
 public class GameView extends JFrame{
@@ -13,11 +14,15 @@ public class GameView extends JFrame{
         setLayout(new GridLayout(2, 1));
 
         JLabel title = new JLabel("Welcome to Tic-Tac-Toe");
+        title.setFont(new Font("Arial", Font.BOLD, 28));
+
         buttons = new JButton[3][3];
 
         JPanel header = new JPanel();
         JPanel board = new JPanel();
+        header.setLayout(new FlowLayout(FlowLayout.CENTER));
         board.setLayout(new GridLayout(3,3));
+        //board.setMargin(new Insets(10, 10, 10, 10)); probably work only with buttons
         header.add(title);
         //adding buttons
         for (int i = 0; i < buttons.length; i++) {
