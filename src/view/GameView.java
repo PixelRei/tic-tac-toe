@@ -2,13 +2,21 @@ package view;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-
+import com.formdev.flatlaf.FlatLightLaf;
+import javax.swing.UIManager;
 import java.awt.*;
 
 public class GameView extends JFrame{
     JButton[][] buttons;
     public GameView(){
         super("Tic Tac Toe");
+
+        try {
+            UIManager.setLookAndFeel(new FlatLightLaf());
+        } catch (Exception ex) {
+            System.err.println("Failed to initialize LaF");
+        }
+
         setSize(600, 750);
         setResizable(false);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
