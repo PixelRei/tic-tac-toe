@@ -11,7 +11,7 @@ public class GameView extends JFrame{
         super("Tic Tac Toe");
         setSize(600, 750);
         setResizable(false);
-        setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(new GridLayout(2, 1));
 
         JLabel title = new JLabel("Welcome to Tic-Tac-Toe");
