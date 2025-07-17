@@ -35,13 +35,12 @@ public class GameView extends JFrame{
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //title.setCursor(new Cursor(CROSSHAIR_CURSOR)); interesting :)
         JLabel title = new JLabel("TRIS!");
         if (titleFont != null) {
             title.setFont(titleFont);
             title.setForeground(new Color(255, 255, 255));
         } else {
-            title.setFont(new Font("Arial", Font.BOLD, 36)); // fallback
+            title.setFont(new Font("Arial", Font.BOLD, 36));
         }
 
         buttons = new JButton[3][3];
@@ -54,7 +53,7 @@ public class GameView extends JFrame{
         header.setLayout(new FlowLayout(FlowLayout.CENTER));
         board.setLayout(new GridLayout(3,3));
 
-        header.setBackground(new Color(0, 128, 157)); //title: 252, 236, 221 rgb
+        header.setBackground(new Color(0, 128, 157)); 
         board.setBackground(new Color(0, 128, 157));
 
         header.add(title);
