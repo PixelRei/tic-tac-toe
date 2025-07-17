@@ -44,7 +44,4 @@ public class GameView extends JFrame{
     public JButton getButton(int row, int col){
         return buttons[row][col];
     }
-    public static void main(String[] args){
-        new GameView();
-    }
 }

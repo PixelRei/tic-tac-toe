@@ -5,6 +5,7 @@ public class Board{
     private char currentPlayer;
     public Board(){
         this.grid = new char[3][3];//three rows and three columns
+        reset();    
     }
     public char getCurrentPlayer(){
         return this.currentPlayer;
@@ -24,10 +25,10 @@ public class Board{
         }else return false;
     }
     public void switchPlayer(){
-        if(currentPlayer == 'X'){
-            currentPlayer = 'O';
+        if(this.currentPlayer == 'X'){
+            this.currentPlayer = 'O';
         }else{
-            currentPlayer = 'X';
+            this.currentPlayer = 'X';
         }
     }
     public void reset(){
