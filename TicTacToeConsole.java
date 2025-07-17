@@ -1,4 +1,4 @@
-
+//only to check the logic of Board.java
 import model.Board;
 import java.util.Scanner;
 

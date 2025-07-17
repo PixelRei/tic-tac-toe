@@ -38,7 +38,7 @@ public class Board{
         }
     }
     //win, draw conditions
-    public boolean isWin(){
+    public boolean isWin(char currentPlayer){
     char p = currentPlayer;
     for (int i = 0; i < 3; i++) {
         if (grid[i][0] == p && grid[i][1] == p && grid[i][2] == p) return true;
