@@ -4,7 +4,7 @@ package controller;
 import model.Board;
 import view.GameView;
 
-import javax.sound.midi.MidiDevice.Info;
+//import javax.sound.midi.MidiDevice.Info;
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -21,7 +21,7 @@ public class GameController{
         initialize();
     }
     public void initialize(){
-        JOptionPane.showMessageDialog(view, board, "Inizia " + board.getCurrentPlayer(), 0);
+        JOptionPane.showMessageDialog(view, "Inizia " + board.getCurrentPlayer(), "Chi inizia" , 1);
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
                 int r = row, c = col; 
@@ -42,23 +42,32 @@ public class GameController{
             if (board.isWin(board.getCurrentPlayer())) {
                 JOptionPane.showMessageDialog(view, "Vince " + board.getCurrentPlayer() + "!");
                 resetGame();
+                CheckUser();
                 return;
             } else if (board.isDraw()) {
                 JOptionPane.showMessageDialog(view, "Pareggio!");
                 resetGame();
+                CheckUser();
                 return;
             }
 
             board.switchPlayer();
         }
     }
+    private void CheckUser(){
+        int option = JOptionPane.showConfirmDialog(view, "Vuoi fare un'altra partita?", "Info", JOptionPane.YES_NO_OPTION);
+        if(option == JOptionPane.YES_OPTION) resetGame();
+        else{
+            view.setVisible(false);
+            view.dispose();
+        }
+    }
     private void resetGame() {
         board.reset();
-        board.setCurrentPlayer('X');
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
                 JButton btn = view.getButton(row, col);
-                btn.setText("");
+                btn.setText(" ");
                 btn.setEnabled(true);
             }
         }

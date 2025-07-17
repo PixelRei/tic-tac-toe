@@ -4,6 +4,10 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import com.formdev.flatlaf.FlatLightLaf;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+
 import java.awt.*;
 
 public class GameView extends JFrame{
@@ -18,15 +22,32 @@ public class GameView extends JFrame{
         }
 
         setSize(600, 750);
-        setResizable(false);
+        setResizable(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(new GridLayout(2, 1));
 
-        JLabel title = new JLabel("Welcome to Tic-Tac-Toe");
-        title.setFont(new Font("Arial", Font.BOLD, 28));
+        Font buttonFont = new Font("Segoe UI", Font.BOLD, 40);
+        Font titleFont = null;
+
+        try (InputStream is = getClass().getResourceAsStream("RebellionSquad-ZpprZ.ttf")) {
+            if (is == null) {
+                System.err.println("Font non trovato!");
+            } else {
+                titleFont = Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(Font.BOLD, 60);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        //title.setCursor(new Cursor(CROSSHAIR_CURSOR)); interesting :)
+        JLabel title = new JLabel("TRIS!");
+        if (titleFont != null) {
+            title.setFont(titleFont);
+            title.setForeground(new Color(255, 255, 255));
+        } else {
+            title.setFont(new Font("Arial", Font.BOLD, 36)); // fallback
+        }
 
         buttons = new JButton[3][3];
-
         JPanel header = new JPanel();
         JPanel board = new JPanel();
 
@@ -35,6 +56,10 @@ public class GameView extends JFrame{
 
         header.setLayout(new FlowLayout(FlowLayout.CENTER));
         board.setLayout(new GridLayout(3,3));
+
+        header.setBackground(new Color(0, 128, 157)); //title: 252, 236, 221 rgb
+        board.setBackground(new Color(0, 128, 157));
+
         header.add(title);
         header.setBorder(border1);
         //adding buttons
@@ -43,7 +68,7 @@ public class GameView extends JFrame{
                 board.add(buttons[i][j] = new JButton());
             }
         }
-        Font buttonFont = new Font("Segoe UI", Font.BOLD, 40);
+        //Font bubble = Font.createFont();
         for (int i = 0; i < buttons.length; i++) {
             for (int j = 0; j < buttons[i].length; j++) {
                 buttons[i][j].setFont(buttonFont);
