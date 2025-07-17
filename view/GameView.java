@@ -1,7 +1,8 @@
 package view;
 
 import javax.swing.*;
-import javax.swing.border.*;
+import javax.swing.border.EmptyBorder;
+
 import java.awt.*;
 
 public class GameView extends JFrame{
@@ -20,16 +21,21 @@ public class GameView extends JFrame{
 
         JPanel header = new JPanel();
         JPanel board = new JPanel();
+
+        EmptyBorder border1 = new EmptyBorder(100, 50, 50, 50);
+        EmptyBorder border2 = new EmptyBorder(20, 50, 120, 50);
+
         header.setLayout(new FlowLayout(FlowLayout.CENTER));
         board.setLayout(new GridLayout(3,3));
-        //board.setMargin(new Insets(10, 10, 10, 10)); probably work only with buttons
         header.add(title);
+        header.setBorder(border1);
         //adding buttons
         for (int i = 0; i < buttons.length; i++) {
             for (int j = 0; j < buttons.length; j++) {
                 board.add(buttons[i][j] = new JButton());
             }
         }
+        board.setBorder(border2);
         add(header);
         add(board);
 
