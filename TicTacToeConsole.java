@@ -23,7 +23,7 @@ public class TicTacToeConsole {
                 continue;
             }
 
-            if (board.isWin()) {
+            if (board.isWin(board.getCurrentPlayer())) {
                 printGrid(board);
                 System.out.println("Giocatore " + board.getCurrentPlayer() + " ha vinto!");
                 break;

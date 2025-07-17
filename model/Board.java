@@ -54,6 +54,6 @@ public class Board{
                 if (grid[i][j] == ' ') return false;
             }
         }
-        return !isWin(); //returns the opposite
+        return !isWin('X') && !isWin('O'); //returns the opposite
     }
 }
