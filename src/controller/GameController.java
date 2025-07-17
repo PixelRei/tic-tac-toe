@@ -4,21 +4,24 @@ package controller;
 import model.Board;
 import view.GameView;
 
+import javax.sound.midi.MidiDevice.Info;
 import javax.swing.*;
 import java.awt.event.*;
 
 public class GameController{
     private Board board;
     private GameView view;
+    private char[] players = {'X', 'O'};
 
     public GameController(Board board, GameView view){
         this.board = board;
         this.view = view;
-        this.board.setCurrentPlayer('X');
+        this.board.setCurrentPlayer(players[(int)(Math.random()*2)]);
 
         initialize();
     }
     public void initialize(){
+        JOptionPane.showMessageDialog(view, board, "Inizia " + board.getCurrentPlayer(), 0);
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
                 int r = row, c = col; 

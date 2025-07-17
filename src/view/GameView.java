@@ -3,7 +3,7 @@ package view;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import com.formdev.flatlaf.FlatLightLaf;
-import javax.swing.UIManager;
+
 import java.awt.*;
 
 public class GameView extends JFrame{
@@ -41,6 +41,13 @@ public class GameView extends JFrame{
         for (int i = 0; i < buttons.length; i++) {
             for (int j = 0; j < buttons.length; j++) {
                 board.add(buttons[i][j] = new JButton());
+            }
+        }
+        Font buttonFont = new Font("Segoe UI", Font.BOLD, 40);
+        for (int i = 0; i < buttons.length; i++) {
+            for (int j = 0; j < buttons[i].length; j++) {
+                buttons[i][j].setFont(buttonFont);
+                buttons[i][j].setFocusPainted(false);//removes the focus
             }
         }
         board.setBorder(border2);
