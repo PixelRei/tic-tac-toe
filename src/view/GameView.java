@@ -3,9 +3,6 @@ package view;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import com.formdev.flatlaf.FlatLightLaf;
-
-import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
 
 import java.awt.*;
@@ -51,7 +48,7 @@ public class GameView extends JFrame{
         JPanel header = new JPanel();
         JPanel board = new JPanel();
 
-        EmptyBorder border1 = new EmptyBorder(100, 50, 50, 50);
+        EmptyBorder border1 = new EmptyBorder(85, 50, 50, 50);
         EmptyBorder border2 = new EmptyBorder(20, 50, 120, 50);
 
         header.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -66,6 +63,10 @@ public class GameView extends JFrame{
         for (int i = 0; i < buttons.length; i++) {
             for (int j = 0; j < buttons.length; j++) {
                 board.add(buttons[i][j] = new JButton());
+                buttons[i][j].setBackground(Color.WHITE);
+                buttons[i][j].setBorder(BorderFactory.createLineBorder(Color.GRAY, 2));
+                buttons[i][j].setForeground(new Color(30, 30, 30));
+                buttons[i][j].setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             }
         }
         //Font bubble = Font.createFont();
