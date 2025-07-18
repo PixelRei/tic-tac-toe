@@ -17,7 +17,6 @@ public class GameController{
         this.board = board;
         this.view = view;
         this.board.setCurrentPlayer(players[(int)(Math.random()*2)]);
-        this.board.setCPU();
 
         initialize();
     }
@@ -75,7 +74,7 @@ public class GameController{
         } while (!board.makeMove(row, col));
 
         JButton btn = view.getButton(row, col);
-        btn.setText("O");
+        btn.setText(String.valueOf(board.getCurrentPlayer()));
         btn.setEnabled(false);
     }
     private void CheckUser(){
