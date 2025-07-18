@@ -3,6 +3,7 @@ package model;
 public class Board{
     private char[][] grid;
     private char currentPlayer;
+    private char CPU;
     public Board(){
         this.grid = new char[3][3];//three rows and three columns
         reset();    
@@ -18,6 +19,13 @@ public class Board{
             currentPlayer = player;
         }
     }
+    public void setCPU(){
+        if(getCurrentPlayer() == 'X'){
+            CPU = 'O';
+        }else CPU = 'X';
+    }
+    public char getCPU(){ return CPU;}
+    
     public boolean makeMove(int row, int column){
         if(grid[row][column] == ' '){
             grid[row][column] = currentPlayer;

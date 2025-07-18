@@ -4,7 +4,6 @@ package controller;
 import model.Board;
 import view.GameView;
 
-//import javax.sound.midi.MidiDevice.Info;
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -12,11 +11,13 @@ public class GameController{
     private Board board;
     private GameView view;
     private char[] players = {'X', 'O'};
+    private int player1, player2;
 
     public GameController(Board board, GameView view){
         this.board = board;
         this.view = view;
         this.board.setCurrentPlayer(players[(int)(Math.random()*2)]);
+        this.board.setCPU();
 
         initialize();
     }
@@ -50,9 +51,32 @@ public class GameController{
                 CheckUser();
                 return;
             }
-
+            board.switchPlayer();
+            cpuMove();
+            if (board.isWin(board.getCurrentPlayer())) {
+                JOptionPane.showMessageDialog(view, "Vince " + board.getCurrentPlayer() + "!");
+                resetGame();
+                CheckUser();
+                return;
+            } else if (board.isDraw()) {
+                JOptionPane.showMessageDialog(view, "Pareggio!");
+                resetGame();
+                CheckUser();
+                return;
+            }
             board.switchPlayer();
         }
+    }
+    private void cpuMove() {
+        int row, col;
+        do {
+            row = (int)(Math.random()*3);
+            col = (int)(Math.random()*3);
+        } while (!board.makeMove(row, col));
+
+        JButton btn = view.getButton(row, col);
+        btn.setText("O");
+        btn.setEnabled(false);
     }
     private void CheckUser(){
         int option = JOptionPane.showConfirmDialog(view, "Vuoi fare un'altra partita?", "Info", JOptionPane.YES_NO_OPTION);

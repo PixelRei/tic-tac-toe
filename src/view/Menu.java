@@ -1,12 +1,11 @@
-package app;
+package view;
 
 import javax.swing.*;
 import java.awt.*;
 import com.formdev.flatlaf.FlatLightLaf;
 
-import view.GameView;
 import model.Board;
-import controller.CPU;
+import controller.GameController;
 
 import java.io.InputStream;
 
@@ -44,7 +43,9 @@ public class Menu extends JFrame{
 
         JButton button = new JButton("Gioca!");
         button.addActionListener(e->{
-            new CPU(new Board(), new GameView());
+            dispose();
+            //new CPU(new Board(), new GameView());
+            new GameController(new Board(), new GameView());
         });
         JLabel welcome = new JLabel("Benvenuto, pronto per giocare?");
 

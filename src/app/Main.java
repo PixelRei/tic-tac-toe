@@ -3,7 +3,7 @@ package app;
 
 import controller.GameController;
 import model.Board;
-import view.GameView;
+import view.*;
 
 public class Main {
     public static void main(String[] args) {
