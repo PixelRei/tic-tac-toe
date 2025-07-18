@@ -11,7 +11,6 @@ public class GameController{
     private Board board;
     private GameView view;
     private char[] players = {'X', 'O'};
-    private int player1, player2;
 
     public GameController(Board board, GameView view){
         this.board = board;
@@ -41,12 +40,10 @@ public class GameController{
 
             if (board.isWin(board.getCurrentPlayer())) {
                 JOptionPane.showMessageDialog(view, "Vince " + board.getCurrentPlayer() + "!");
-                resetGame();
                 CheckUser();
                 return;
             } else if (board.isDraw()) {
                 JOptionPane.showMessageDialog(view, "Pareggio!");
-                resetGame();
                 CheckUser();
                 return;
             }
@@ -54,12 +51,10 @@ public class GameController{
             cpuMove();
             if (board.isWin(board.getCurrentPlayer())) {
                 JOptionPane.showMessageDialog(view, "Vince " + board.getCurrentPlayer() + "!");
-                resetGame();
                 CheckUser();
                 return;
             } else if (board.isDraw()) {
                 JOptionPane.showMessageDialog(view, "Pareggio!");
-                resetGame();
                 CheckUser();
                 return;
             }
@@ -94,5 +89,6 @@ public class GameController{
                 btn.setEnabled(true);
             }
         }
+        initialize();
     }
 }
