@@ -9,7 +9,6 @@ import com.formdev.flatlaf.FlatLightLaf;
 import model.Board;
 import controller.GameController;
 
-import java.io.File;
 import java.io.InputStream;
 
 public class Menu extends JFrame{
