@@ -37,29 +37,26 @@ public class GameController{
             view.getButton(row, col).setText(String.valueOf(board.getCurrentPlayer()));
             view.getButton(row, col).setEnabled(false);
 
-            if (board.isWin(board.getCurrentPlayer())) {
-                JOptionPane.showMessageDialog(view, "Vince " + board.getCurrentPlayer() + "!");
-                CheckUser();
-                return;
-            } else if (board.isDraw()) {
-                JOptionPane.showMessageDialog(view, "Pareggio!");
-                CheckUser();
-                return;
-            }
+            if (checkGameOver()) return;
             board.switchPlayer();
             cpuMove();
-            if (board.isWin(board.getCurrentPlayer())) {
-                JOptionPane.showMessageDialog(view, "Vince " + board.getCurrentPlayer() + "!");
-                CheckUser();
-                return;
-            } else if (board.isDraw()) {
-                JOptionPane.showMessageDialog(view, "Pareggio!");
-                CheckUser();
-                return;
-            }
+            if (checkGameOver()) return;
             board.switchPlayer();
         }
     }
+    private boolean checkGameOver() {
+    if (board.isWin(board.getCurrentPlayer())) {
+        JOptionPane.showMessageDialog(view, "Vince " + board.getCurrentPlayer() + "!");
+        CheckUser();
+        return true;
+    } else if (board.isDraw()) {
+        JOptionPane.showMessageDialog(view, "Pareggio!");
+        CheckUser();
+        return true;
+    }
+    return false;
+}
+
     private void cpuMove() {
         int row, col;
 
@@ -89,6 +86,8 @@ public class GameController{
                 btn.setEnabled(true);
             }
         }
-        initialize();
+
+        this.board.setCurrentPlayer(players[(int)(Math.random()*2)]);
+        JOptionPane.showMessageDialog(view, "Inizia " + board.getCurrentPlayer(), "Chi inizia" , 1);
     }
 }
