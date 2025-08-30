@@ -12,6 +12,9 @@ public class GameView extends JFrame{
     public GameView(){
         super("Tic Tac Toe");
 
+        ImageIcon icon = new ImageIcon(getClass().getResource("/resources/tictactoe-icon.png"));
+        setIconImage(icon.getImage());
+
         try {
             UIManager.setLookAndFeel(new FlatLightLaf());
         } catch (Exception ex) {

@@ -19,6 +19,9 @@ public class Menu extends JFrame{
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(new GridLayout(3, 1));
 
+        ImageIcon icon = new ImageIcon(getClass().getResource("/resources/tictactoe-icon.png"));
+        setIconImage(icon.getImage());
+
         try {
             UIManager.setLookAndFeel(new FlatLightLaf());
         } catch (Exception ex) {
