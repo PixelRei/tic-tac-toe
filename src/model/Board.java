@@ -22,6 +22,14 @@ public class Board{
         if(this.grid[row][column] == ' ') return true;
         else return false;
     }
+    public void makeTempMove(int row, int col, char player) {
+        this.grid[row][col] = player;
+    }
+    public void undoMove(int row, int col) {
+        this.grid[row][col] = ' ';
+    }
+
+
     public boolean makeMove(int row, int column){
         if(grid[row][column] == ' '){
             grid[row][column] = currentPlayer;

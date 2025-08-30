@@ -45,29 +45,57 @@ public class GameController{
         }
     }
     private boolean checkGameOver() {
-    if (board.isWin(board.getCurrentPlayer())) {
-        JOptionPane.showMessageDialog(view, "Vince " + board.getCurrentPlayer() + "!");
-        CheckUser();
-        return true;
-    } else if (board.isDraw()) {
-        JOptionPane.showMessageDialog(view, "Pareggio!");
-        CheckUser();
-        return true;
+        if (board.isWin(board.getCurrentPlayer())) {
+            JOptionPane.showMessageDialog(view, "Vince " + board.getCurrentPlayer() + "!");
+            CheckUser();
+            return true;
+        } else if (board.isDraw()) {
+            JOptionPane.showMessageDialog(view, "Pareggio!");
+            CheckUser();
+            return true;
+        }
+        return false;
     }
-    return false;
-}
-
     private void cpuMove() {
-        int row, col;
-        do {
-            row = (int)(Math.random()*3);
-            col = (int)(Math.random()*3);
-        } while (!board.makeMove(row, col));
+        int[] move;
+        move = findWinningMove(board.getCurrentPlayer());
+        if (move == null) {
+            char opponent = (board.getCurrentPlayer() == 'X') ? 'O' : 'X';
+            move = findWinningMove(opponent);
+        }
+        if (move == null) {
+            if (board.isEmpty(1, 1)) {
+                move = new int[]{1, 1};
+            }
+        }
+        if (move == null) {
+            do {
+                move = new int[]{(int)(Math.random() * 3), (int)(Math.random() * 3)};
+            } while (!board.isEmpty(move[0], move[1]));
+        }
 
-        JButton btn = view.getButton(row, col);
+        board.makeMove(move[0], move[1]);
+        JButton btn = view.getButton(move[0], move[1]);
         btn.setText(String.valueOf(board.getCurrentPlayer()));
         btn.setEnabled(false);
     }
+
+    private int[] findWinningMove(char player) {
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                if (board.isEmpty(row, col)) {
+                    board.makeTempMove(row, col, player); 
+                    boolean win = board.isWin(player);
+                    board.undoMove(row, col); 
+                    if (win) {
+                        return new int[]{row, col};
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
     private void CheckUser(){
         int option = JOptionPane.showConfirmDialog(view, "Vuoi fare un'altra partita?", "Info", JOptionPane.YES_NO_OPTION);
         if(option == JOptionPane.YES_OPTION) resetGame();
