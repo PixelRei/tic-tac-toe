@@ -18,7 +18,6 @@ public class SmartCPU {
             board.makeMove(2, 2);
         }else{
             CheckRows();
-        }else{
             CheckCols();
         }
     }

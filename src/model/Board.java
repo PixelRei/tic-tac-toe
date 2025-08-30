@@ -40,14 +40,14 @@ public class Board{
     }
     //win, draw conditions
     public boolean isWin(char currentPlayer){
-    char p = currentPlayer;
-    for (int i = 0; i < 3; i++) {
-        if (grid[i][0] == p && grid[i][1] == p && grid[i][2] == p) return true;
-        if (grid[0][i] == p && grid[1][i] == p && grid[2][i] == p) return true;
-    }
-    if (grid[0][0] == p && grid[1][1] == p && grid[2][2] == p) return true;
-    if (grid[0][2] == p && grid[1][1] == p && grid[2][0] == p) return true;
-    return false;   
+        char p = currentPlayer;
+        for (int i = 0; i < 3; i++) {
+            if (grid[i][0] == p && grid[i][1] == p && grid[i][2] == p) return true;
+            if (grid[0][i] == p && grid[1][i] == p && grid[2][i] == p) return true;
+        }
+        if (grid[0][0] == p && grid[1][1] == p && grid[2][2] == p) return true;
+        if (grid[0][2] == p && grid[1][1] == p && grid[2][0] == p) return true;
+        return false;   
     }
     public boolean isDraw(){
         for (int i = 0; i < 3; i++) {
