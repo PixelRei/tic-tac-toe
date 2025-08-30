@@ -18,6 +18,10 @@ public class Board{
             currentPlayer = player;
         }
     }
+    public boolean isEmpty(int row, int column){
+        if(this.grid[row][column] == ' ') return true;
+        else return false;
+    }
     public boolean makeMove(int row, int column){
         if(grid[row][column] == ' '){
             grid[row][column] = currentPlayer;

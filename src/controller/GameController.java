@@ -59,7 +59,6 @@ public class GameController{
 
     private void cpuMove() {
         int row, col;
-
         do {
             row = (int)(Math.random()*3);
             col = (int)(Math.random()*3);
