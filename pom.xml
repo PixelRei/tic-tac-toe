@@ -3,16 +3,24 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <!-- Versione del modello POM -->
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- Informazioni sul progetto -->
     <groupId>com.andre</groupId>
     <artifactId>tic-tac-toe</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <!-- Plugin per creare un jar eseguibile con dipendenze -->
+    <!-- ❗ SEZIONE DIPENDENZE -->
+    <dependencies>
+        <!-- FlatLaf -->
+        <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf</artifactId>
+            <version>3.4</version>
+        </dependency>
+    </dependencies>
+
+    <!-- Plugin per creare un JAR con tutte le dipendenze incluse -->
     <build>
         <plugins>
             <plugin>

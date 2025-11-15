@@ -1,0 +1,1 @@
+View contains the GUI of the project
