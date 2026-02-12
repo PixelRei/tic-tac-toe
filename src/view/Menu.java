@@ -1,4 +1,4 @@
-package app.view;
+package view;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -6,8 +6,8 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import com.formdev.flatlaf.FlatLightLaf;
 
-import app.controller.GameController;
-import app.model.Board;
+import model.Board;
+import controller.GameController;
 
 import java.io.InputStream;
 

@@ -1,10 +1,9 @@
-package app.controller;
+package controller;
+
+import model.*;
+import view.GameView;
 
 import javax.swing.*;
-
-import app.model.*;
-import app.view.GameView;
-
 import java.awt.event.*;
 
 public class GameController{
