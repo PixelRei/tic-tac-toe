@@ -1,0 +1,1 @@
+Controller manages the connection between model and view, manages also the input and output (in some cases even the connection to a database)
