@@ -12,7 +12,7 @@ public class GameView extends JFrame{
     public GameView(){
         super("Tic Tac Toe");
 
-        ImageIcon icon = new ImageIcon(getClass().getResource("/resources/tictactoe-icon.png"));
+        ImageIcon icon = new ImageIcon(getClass().getResource("/resources/img/tictactoe-icon.png"));
         setIconImage(icon.getImage());
 
         try {

@@ -19,7 +19,7 @@ public class Menu extends JFrame{
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(new GridLayout(3, 1));
 
-        ImageIcon icon = new ImageIcon(getClass().getResource("/resources/tictactoe-icon.png"));
+        ImageIcon icon = new ImageIcon(getClass().getResource("/resources/img/tictactoe-icon.png"));
         setIconImage(icon.getImage());
 
         try {
