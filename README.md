@@ -19,4 +19,4 @@ And finally, in the Controller section there is the file that controlls the acti
 
 ### Game overview
 
-![immagine]()
+![immagine](img/immagine1.png)
