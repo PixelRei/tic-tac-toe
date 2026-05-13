@@ -19,8 +19,17 @@ And finally, in the Controller section there is the file that controlls the acti
 
 ### Game overview
 
+The game starts with this screen:
 <center><img src="img/immagine1.png"></center>
+After starting the game, you'll be notified of what letter you'll use and then start playing.
 <center><img src="img/immagine2.png"></center>
+Here you can see the board during the game, that's what you see during the game.
 <center><img src="img/immagine3.png"></center>
+After finishing the game you'll get the message displaying if you have won or lost.
 <center><img src="img/immagine4.png"></center>
+In the end you can decide to play again or exit the game.
 <center><img src="img/immagine5.png"></center>
+
+## Authors
+
+- [@PixelRei](https://github.com/PixelRei)
