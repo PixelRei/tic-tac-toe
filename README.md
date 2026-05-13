@@ -19,4 +19,8 @@ And finally, in the Controller section there is the file that controlls the acti
 
 ### Game overview
 
-![immagine](img/immagine1.png)
+<center>![immagine](img/immagine1.png)</center>
+<center>![immagine](img/immagine2.png)</center>
+<center>![immagine](img/immagine3.png)</center>
+<center>![immagine](img/immagine4.png)</center>
+<center>![immagine](img/immagine5.png)</center>
